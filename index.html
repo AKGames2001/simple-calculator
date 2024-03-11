@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Calculator</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+  <body>
+    <div class="main">
+      <div class="calculator">
+        <div class="calculator-display">
+          <p id="calculator-display-current"></p>
+          <p id="calculator-display-output"></p>
+        </div>
+        <div class="calculator-keys">
+          <div class="calculator-keys-row">
+            <button class="calculator-keys-btn" onclick="appendNum(7)">7</button>
+            <button class="calculator-keys-btn" onclick="appendNum(8)">8</button>
+            <button class="calculator-keys-btn" onclick="appendNum(9)">9</button>
+            <button class="calculator-keys-btn fn-btn" onclick="appendFunction('divide')">/</button>
+
+          </div>
+          <div class="calculator-keys-row">
+            <button class="calculator-keys-btn" onclick="appendNum(4)">4</button>
+            <button class="calculator-keys-btn" onclick="appendNum(5)">5</button>
+            <button class="calculator-keys-btn" onclick="appendNum(6)">6</button>
+            <button class="calculator-keys-btn fn-btn" onclick="appendFunction('multiply')">*</button>
+
+          </div>
+          <div class="calculator-keys-row">
+            <button class="calculator-keys-btn" onclick="appendNum(1)">1</button>
+            <button class="calculator-keys-btn" onclick="appendNum(2)">2</button>
+            <button class="calculator-keys-btn" onclick="appendNum(3)">3</button>
+            <button class="calculator-keys-btn fn-btn" onclick="appendFunction('subtract')">-</button>
+
+          </div>
+          <div class="calculator-keys-row">
+            <button class="calculator-keys-btn" onclick="clearAll()">AC</button>
+            <button class="calculator-keys-btn" onclick="appendNum(0)">0</button>
+            <button class="calculator-keys-btn" onclick="calculate()">=</button>
+            <button class="calculator-keys-btn fn-btn" onclick="appendFunction('add')">+</button>
+          </div>
+        </div>
+      </div>
+      <div class="history">
+        <div class="history-title-bar">
+            <p>History</p>
+            <p class="clear-btn">Clear</p>
+        </div>
+        <div class="history-tray">
+            <div class="history-card">
+                <p class="history-card-current">256.1 + 5.3</p>
+                <p class="history-card-output">261.4</p>
+            </div>
+        </div>
+      </div>
+    </div>
+    <script src="./js/app.js"></script>
+  </body>
+</html>
