@@ -115,7 +115,7 @@ body {
     background-color: #777;
 }
 
-.history-tray {
+#history-tray {
     display: flex;
     flex-flow: column;
     gap: 10px;

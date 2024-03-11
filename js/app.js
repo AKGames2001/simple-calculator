@@ -50,7 +50,7 @@ function calculate() {
       switch (current_operation) {
         case "+":
           output += curr;
-          break; 
+          break;
         case "-":
           output -= curr;
           break;
@@ -63,13 +63,26 @@ function calculate() {
         default:
           output = curr;
       }
-     } 
-    else {
+    } else {
       current_operation = curr;
     }
     count++;
   }
   document.getElementById("calculator-display-output").innerHTML = output;
+
+  let text = "";
+  let textHistory =
+    '<p class="history-card-current">' + displayCurrent.innerHTML + "</p>";
+  let textOutput =
+    '<p class="history-card-output">' + displayOutput.innerHTML + "</p>";
+  text += '<div class="history-card">' + textHistory + textOutput + "</div>";
+
+  var div = document.createElement("div");
+  div.className = "history-card";
+  div.innerHTML = text;
+
+  document.getElementById("history-tray").appendChild(div);
+
   current_calculation = [];
 }
 
@@ -79,4 +92,4 @@ function clearAll() {
   current_calculation = [];
   num = "";
   currentString = "";
-} 
+}
