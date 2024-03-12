@@ -1,11 +1,16 @@
 var current_calculation = [];
 let num = "";
 let currentString = "";
+let nextCalculation = false;
 
 let displayCurrent = document.getElementById("calculator-display-current");
 let displayOutput = document.getElementById("calculator-display-output");
 
 function appendNum(n) {
+  if (nextCalculation) {
+    clearAll();
+    nextCalculation = false;
+  }
   num += n.toString();
   displayOutput.innerHTML += n.toString();
 }
@@ -43,8 +48,7 @@ function calculate() {
   let count = 0;
   for (i = 0; i < current_calculation.length; i++) {
     let curr = current_calculation[i];
-    console.log("Current Operation: " + current_operation);
-    console.log("Curr: " + curr);
+    
     if (count % 2 == 0) {
       curr = Number(curr);
       switch (current_operation) {
@@ -75,7 +79,7 @@ function calculate() {
     '<p class="history-card-current">' + displayCurrent.innerHTML + "</p>";
   let textOutput =
     '<p class="history-card-output">' + displayOutput.innerHTML + "</p>";
-  text += '<div class="history-card">' + textHistory + textOutput + "</div>";
+  text += textHistory + textOutput;
 
   var div = document.createElement("div");
   div.className = "history-card";
@@ -84,6 +88,7 @@ function calculate() {
   document.getElementById("history-tray").appendChild(div);
 
   current_calculation = [];
+  nextCalculation = true;
 }
 
 function clearAll() {
@@ -92,4 +97,9 @@ function clearAll() {
   current_calculation = [];
   num = "";
   currentString = "";
+}
+
+function clearHistory(){
+  const hist = document.getElementById("history-tray");
+  hist.innerHTML= " ";
 }
